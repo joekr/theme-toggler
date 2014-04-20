@@ -1,0 +1,14 @@
+{
+  "name": "theme-toggler",
+  "main": "./lib/theme-toggler",
+  "version": "0.0.1",
+  "description": "A very simple way to toggle between a light theme and a dark theme.",
+  "activationEvents": ["theme-toggler:toggle"],
+  "repository": "https://github.com/atom/theme-toggler",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
