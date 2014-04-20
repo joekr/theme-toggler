@@ -4,8 +4,7 @@
     'submenu': [
       'label': 'theme-toggler'
       'submenu': [
-        { 'label': 'Dark', 'command': 'theme-toggler:dark' },
-        { 'label': 'Light', 'command': 'theme-toggler:light' }
+        { 'label': 'Toggle', 'command': 'theme-toggler:toggle' },
       ]
     ]
   }
