@@ -2,16 +2,29 @@ ThemeTogglerView = require './theme-toggler-view'
 
 module.exports =
   themeTogglerView: null
+  configDefaults: {
+    lightUiTheme: 'atom-light-ui',
+    lightSyntaxTheme: 'atom-light-syntax',
+    darkUiTheme: 'atom-dark-ui',
+    darkSyntaxTheme: 'atom-dark-syntax'
+  }
 
   activate: (state) ->
     atom.workspaceView.command "theme-toggler:dark", => @dark()
     atom.workspaceView.command "theme-toggler:light", => @light()
 
+
   light: ->
-    atom.themes.setEnabledThemes(["atom-light-syntax","atom-light-ui"])
+    fullTheme = [atom.config.get('theme-toggler.lightUiTheme'),
+      atom.config.get('theme-toggler.lightSyntaxTheme')]
+
+    atom.themes.setEnabledThemes(fullTheme)
 
   dark: ->
-    atom.themes.setEnabledThemes(["atom-dark-ui","atom-dark-syntax"])
+    fullTheme = [atom.config.get('theme-toggler.darkUiTheme'),
+      atom.config.get('theme-toggler.darkSyntaxTheme')]
+
+    atom.themes.setEnabledThemes(fullTheme)
 
   deactivate: ->
     @themeTogglerView.destroy()
