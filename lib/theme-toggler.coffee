@@ -3,7 +3,7 @@ ThemeTogglerView = require './theme-toggler-view'
 _isDark = true
 
 module.exports =
-  themeTogglerView: null
+  themeView: null
   configDefaults: {
     lightUiTheme: 'atom-light-ui',
     lightSyntaxTheme: 'atom-light-syntax',
