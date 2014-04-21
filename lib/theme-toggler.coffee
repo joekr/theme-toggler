@@ -1,5 +1,7 @@
 ThemeTogglerView = require './theme-toggler-view'
 
+_isDark = true
+
 module.exports =
   themeTogglerView: null
   configDefaults: {
@@ -8,24 +10,23 @@ module.exports =
     darkUiTheme: 'atom-dark-ui',
     darkSyntaxTheme: 'atom-dark-syntax'
   }
-  isDark: true
 
   activate: (state) ->
     atom.workspaceView.command "theme-toggler:toggle", => @toggle()
 
     theme = atom.config.get('core.themes')[0]
-    atom.config.set('theme-toggler.isDark',false)\
+    @_isDark = false\
       if theme == atom.config.get('theme-toggler.lightUiTheme')
 
     @toggle()
 
   toggle: ->
-    if atom.config.get('theme-toggler.isDark')
+    if @_isDark
       @setDark()
     else
       @setLight()
 
-    atom.config.toggle('theme-toggler.isDark')
+    @_isDark = !@_isDark
 
   setLight: ->
     fullTheme = [atom.config.get('theme-toggler.lightUiTheme'),
