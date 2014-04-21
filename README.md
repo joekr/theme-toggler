@@ -6,14 +6,16 @@ Allows the user to define both the UI and Syntax theme for both light and dark.
 
 ### Default settings
 
-Keymaping: ctrl + alt + t
+**Keymaping**: ctrl + alt + t
 
-Light UI: atom-light-ui
-Light syntax: atom-light-syntax
+**Light UI**: atom-light-ui
 
-Dark UI: atom-dark-ui
-Dark syntax: atom-dark-syntax
+**Light Syntax**: atom-light-syntax
 
-#### Listing known thems
+**Dark UI**: atom-dark-ui
 
-You can list all the known themes with Theme Toggler going to Packages -> Theme Toggler -> List all themes. Or command + shift + p and search for "Theme Toggler: Themes". The list will close after 15 sec.
+**Dark Syntax**: atom-dark-syntax
+
+#### Listing known themes
+
+You can list all the known loaded themes with Theme Toggler going to `Packages -> Theme Toggler -> List all themes`. Or command + shift + p and search for "Theme Toggler: Themes". The list will close after 15 sec.
