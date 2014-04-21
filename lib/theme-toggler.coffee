@@ -36,7 +36,5 @@ module.exports =
     atom.themes.setEnabledThemes(fullTheme)
 
   deactivate: ->
-    @themeTogglerView.destroy()
 
   serialize: ->
-    themeTogglerViewState: @themeTogglerView.serialize()
