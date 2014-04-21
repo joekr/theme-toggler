@@ -17,6 +17,8 @@ module.exports =
     atom.config.set('theme-toggler.isDark',false)\
       if theme == atom.config.get('theme-toggler.lightUiTheme')
 
+    @toggle()
+
   toggle: ->
     if atom.config.get('theme-toggler.isDark')
       @setDark()
