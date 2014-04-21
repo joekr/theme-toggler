@@ -12,6 +12,8 @@ module.exports =
   }
 
   activate: (state) ->
+    themeView = new ThemeTogglerView(state)
+
     atom.workspaceView.command "theme-toggler:toggle", => @toggle()
 
     theme = atom.config.get('core.themes')[0]
@@ -39,5 +41,8 @@ module.exports =
     atom.themes.setEnabledThemes(fullTheme)
 
   deactivate: ->
+    themeView.detach()
+    themeView = null
 
   serialize: ->
+    themeView.serialize()

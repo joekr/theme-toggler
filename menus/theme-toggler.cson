@@ -2,9 +2,10 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'theme-toggler'
+      'label': 'Theme Toggler'
       'submenu': [
         { 'label': 'Toggle', 'command': 'theme-toggler:toggle' },
+        { 'label': 'List all themes', 'command': 'theme-toggler:themes' },
       ]
     ]
   }

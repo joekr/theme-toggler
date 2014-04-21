@@ -3,11 +3,17 @@
 module.exports =
 class ThemeTogglerView extends View
   @content: ->
+    types = ['syntax','ui']
     @div class: 'theme-toggler overlay from-top', =>
-      @div "The ThemeToggler package is Alive! It's ALIVE!", class: "message"
+      for type in types
+        @h1 "All loaded #{type} themes"
+        @ol =>
+          for theme in atom.themes.getLoadedThemes()
+            @li "#{theme.name}"\
+             if theme.metadata.theme == "#{type}"
 
   initialize: (serializeState) ->
-    atom.workspaceView.command "theme-toggler:toggle", => @toggle()
+    atom.workspaceView.command "theme-toggler:themes", => @toggle()
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
@@ -17,8 +23,10 @@ class ThemeTogglerView extends View
     @detach()
 
   toggle: ->
-    console.log "ThemeTogglerView was toggled!"
     if @hasParent()
       @detach()
     else
       atom.workspaceView.append(this)
+      setTimeout ( =>
+        @detach()
+      ), 15000
