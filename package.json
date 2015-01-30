@@ -1,7 +1,7 @@
 {
   "name": "theme-toggler",
   "main": "./lib/theme-toggler",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A very simple way to toggle between a light theme and a dark theme.",
   "activationEvents": [
     "theme-toggler:toggle"
