@@ -1,4 +1,5 @@
-{View} = require 'atom'
+{CompositeDisposable} = require 'atom'
+{$, TextEditorView, View} = require 'atom-space-pen-views'
 
 module.exports =
 class ThemeTogglerView extends View
@@ -13,7 +14,8 @@ class ThemeTogglerView extends View
              if theme.metadata.theme == "#{type}"
 
   initialize: (serializeState) ->
-    atom.workspaceView.command "theme-toggler:themes", => @toggle()
+    @subscriptions = new CompositeDisposable
+    @subscriptions.add atom.commands.add 'atom-workspace', 'theme-toggler:themes', => @toggle()
 
   # Returns an object that can be retrieved when package is activated
   serialize: ->
@@ -21,12 +23,14 @@ class ThemeTogglerView extends View
   # Tear down any state and detach
   destroy: ->
     @detach()
+    @subscriptions.dispose()
 
   toggle: ->
     if @hasParent()
       @detach()
     else
-      atom.workspaceView.append(this)
+      # atom.workspaceView.append(this)
+      atom.workspace.addModalPanel(item: this)
       setTimeout ( =>
         @detach()
       ), 15000

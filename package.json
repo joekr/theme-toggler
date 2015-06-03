@@ -3,13 +3,15 @@
   "main": "./lib/theme-toggler",
   "version": "0.3.3",
   "description": "A very simple way to toggle between a light theme and a dark theme.",
-  "activationEvents": [
-    "theme-toggler:toggle"
-  ],
+  "activationCommands": {
+    "atom-text-editor": "theme-toggler:toggle"
+  },
   "repository": "https://github.com/joekr/theme-toggler",
   "license": "MIT",
   "engines": {
-    "atom": ">0.50.0"
+    "atom": ">=0.174.0 <2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "atom-space-pen-views": "^2.0.3"
+  }
 }
