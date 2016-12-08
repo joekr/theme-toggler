@@ -3,6 +3,10 @@ ThemeTogglerView = require './theme-toggler-view'
 
 _isDark = true
 
+checkThemeExists = (name) ->
+  if not atom.packages.resolvePackagePath name
+    atom.notifications.addWarning "Can not find theme #{name}"
+
 module.exports =
   themeView: null,
   subscriptions: null,
@@ -43,11 +47,17 @@ module.exports =
   setLight: ->
     fullTheme = [atom.config.get('theme-toggler.lightUiTheme'),
       atom.config.get('theme-toggler.lightSyntaxTheme')]
+
+    fullTheme.forEach checkThemeExists
+
     atom.config.set('core.themes', fullTheme)
 
   setDark: ->
     fullTheme = [atom.config.get('theme-toggler.darkUiTheme'),
       atom.config.get('theme-toggler.darkSyntaxTheme')]
+
+    fullTheme.forEach checkThemeExists
+
     atom.config.set('core.themes', fullTheme)
 
   deactivate: ->
