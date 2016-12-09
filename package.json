@@ -1,7 +1,7 @@
 {
   "name": "theme-toggler",
   "main": "./lib/theme-toggler",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A very simple way to toggle between a light theme and a dark theme.",
   "activationCommands": {
     "atom-text-editor": "theme-toggler:toggle"
